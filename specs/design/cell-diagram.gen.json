@@ -1,0 +1,33 @@
+{
+  "id": "project",
+  "name": "p5",
+  "modelVersion": "0.2.0",
+  "components": [
+    {
+      "id": "hello-api",
+      "label": "hello-api",
+      "version": "0.1.0",
+      "type": "service",
+      "buildPack": "Go",
+      "services": {
+        "hello-api:api": {
+          "id": "hello-api:api",
+          "label": "API",
+          "type": "HTTP",
+          "dependencyIds": [],
+          "deploymentMetadata": {
+            "gateways": {
+              "internet": {
+                "isExposed": true
+              },
+              "intranet": {
+                "isExposed": false
+              }
+            }
+          }
+        }
+      },
+      "connections": []
+    }
+  ]
+}
