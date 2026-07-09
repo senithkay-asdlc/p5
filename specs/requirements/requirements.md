@@ -42,3 +42,4 @@ This project delivers a simple "Hello World" API. It exists to provide a minimal
 
 1. WHEN an unsupported HTTP method or unknown route is requested THEN the system SHALL respond with an appropriate error status code (e.g. `404 Not Found` or `405 Method Not Allowed`).
 2. WHEN an unexpected server error occurs THEN the system SHALL respond with HTTP status `500 Internal Server Error` and SHALL NOT expose internal implementation details in the response body.
+
