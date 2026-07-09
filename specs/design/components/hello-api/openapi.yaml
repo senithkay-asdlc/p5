@@ -1,0 +1,66 @@
+openapi: 3.0.3
+info:
+  title: Hello API
+  version: 0.1.0
+  description: Minimal public hello-world service.
+servers:
+  - url: /
+paths:
+  /hello:
+    get:
+      operationId: getHello
+      summary: Get the greeting message
+      responses:
+        '200':
+          description: Greeting returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Greeting'
+        '500':
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /health:
+    get:
+      operationId: getHealth
+      summary: Check service health
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+        '500':
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Greeting:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
+          description: greeting text
+    Health:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          description: service health status
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code: { type: integer, description: HTTP or application error code }
+        message: { type: string, description: short human-readable label }
+        description: { type: string, description: detailed explanation }
+        moreInfo: { type: string, description: URI to documentation }

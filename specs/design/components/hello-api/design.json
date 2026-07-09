@@ -1,0 +1,12 @@
+{
+  "name": "hello-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Go",
+  "buildpack": "docker",
+  "appPath": "hello-api",
+  "entrypoint": "deployment/service",
+  "exposure": "internet",
+  "dependencies": [],
+  "description": "Single stateless Go service that serves a public GET /hello greeting endpoint and a GET /health liveness endpoint. Owns no persistence and makes no outbound calls; it explicitly does not implement authentication, user data, or any other resource."
+}
